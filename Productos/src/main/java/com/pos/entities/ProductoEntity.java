@@ -22,7 +22,7 @@ public class ProductoEntity {
     private double precio;
     private float impuesto;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+        @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_unidad_medida")
     private UnidadMedidaEntity unidadMedidaEntity;
 

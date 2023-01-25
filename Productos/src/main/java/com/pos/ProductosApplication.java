@@ -7,11 +7,12 @@ import com.pos.repository.ICategoriaRepository;
 import com.pos.repository.IProductoRepository;
 import com.pos.repository.IUnidadMedidaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProductosApplication {
+public class ProductosApplication implements CommandLineRunner {
 
 	@Autowired
 	private IProductoRepository productoRepository;
@@ -26,8 +27,8 @@ public class ProductosApplication {
 		SpringApplication.run(ProductosApplication.class, args);
 	}
 
-	//@Override
-	public void run(String ...args) throws Exception {
+	@Override
+	public void run(String... args) throws Exception {
 		InitDB();
 		System.out.print("TERMINO RUN");
 	}
@@ -56,7 +57,7 @@ public class ProductosApplication {
 		this.unidadMedidaRepository.save(unidadMedida);
 		this.productoRepository.save(producto);
 
-		var productoConsultado = this.productoRepository.findById(1L);
+		var productoConsultado = this.productoRepository.findById(1L).get();
 
 		System.out.println(productoConsultado);
 	}
