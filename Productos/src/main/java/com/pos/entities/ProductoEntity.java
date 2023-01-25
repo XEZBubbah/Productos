@@ -26,7 +26,7 @@ public class ProductoEntity {
     @JoinColumn(name = "id_unidad_medida")
     private UnidadMedidaEntity unidadMedidaEntity;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_categoria")
     private CategoriaEntity categoria;
 }

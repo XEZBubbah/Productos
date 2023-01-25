@@ -26,7 +26,8 @@ public class ProductosApplication {
 		SpringApplication.run(ProductosApplication.class, args);
 	}
 
-	public void run(String ... args) throws Exception {
+	//@Override
+	public void run(String ...args) throws Exception {
 		InitDB();
 		System.out.print("TERMINO RUN");
 	}
@@ -51,7 +52,13 @@ public class ProductosApplication {
 				.impuesto(0.19f)
 				.nombre("Arroz")
 				.build();
+		this.categoriaRepository.save(categoria);
+		this.unidadMedidaRepository.save(unidadMedida);
+		this.productoRepository.save(producto);
 
+		var productoConsultado = this.productoRepository.findById(1L);
+
+		System.out.println(productoConsultado);
 	}
 
 
